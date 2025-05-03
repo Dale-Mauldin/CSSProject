@@ -57,22 +57,23 @@ h1 {
 /* Desktop view (≥992px) */
 @media (min-width: 992px) {
   .menu-section {
-    float: center;
+    float: left;
     width: 30%;
     margin: 1.66%;
   }
   
-  .menu-section:nth-child(3) {
-    width: 96%;
-  }
 }
 
 /* Tablet view (768px–991px) */
 @media (min-width: 768px) and (max-width: 991px) {
   .menu-section {
-    float: center;
+    float: left;
     width: 47%;
     margin: 1.5%;
+  }
+  
+  .menu-section:nth-child(3) {
+    width: 96%;
   }
 }
 
