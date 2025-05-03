@@ -1,65 +1,86 @@
-/* Global */
+/* Global box-sizing and basic styles */
 * {
-    box-sizing: border-box;
-  }
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-  }
-  h1 {
-    text-align: center;
-    font-size: 2em; /* 75% larger than base font */
-  }
-  .container {
-    width: 100%;
-  }
-  
-  /* Section styling */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em; /* 75% larger */
+}
+
+.container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Section layout and styling */
+.menu-section {
+  border: 1px solid black;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden; /* Contains floated children and avoids margin collapse */
+}
+
+.section-title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid black;
+  padding: 5px 10px;
+  font-size: 1.25em; /* 25% larger */
+  background-color: lightgray;
+  font-weight: bold;
+}
+
+/* Section title colors */
+.chicken {
+  background-color: #ffcccb; /* light red */
+}
+
+.beef {
+  background-color: #d1c4e9; /* light purple */
+}
+
+.sushi {
+  background-color: #b2ebf2; /* light cyan */
+}
+
+/* Desktop view (≥992px) */
+@media (min-width: 992px) {
   .menu-section {
-    border: 1px solid black;
-    background-color: red;
-    padding: 20px;
-    margin: 10px;
-    position: relative;
+    float: left;
+    width: 30%;
+    margin: 1.66%;
   }
-  .section-title {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: 1px solid black;
-    padding: 5px 10px;
-    font-size: 1.25em; /* 25% larger */
-    background-color: lightgray;
+}
+
+/* Tablet view (768px–991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .menu-section {
+    float: left;
+    width: 47%;
+    margin: 1.5%;
   }
-  .chicken { background-color: #ffcccb; }
-  .beef { background-color: #d1c4e9; }
-  .sushi { background-color: #b2ebf2; }
-  
-  /* Desktop view */
-  @media (min-width: 992px) {
-    .menu-section {
-      float: left;
-      width: 32%;
-      margin: 1%;
-    }
+
+  .menu-section:nth-child(3) {
+    width: 96%;
   }
-  
-  /* Tablet view */
-  @media (min-width: 768px) and (max-width: 991px) {
-    .menu-section {
-      width: 48%;
-      margin: 1%;
-    }
-    .menu-section:nth-child(3) {
-      width: 98%;
-    }
+}
+
+/* Mobile view (≤767px) */
+@media (max-width: 767px) {
+  .menu-section {
+    width: 100%;
+    float: none;
+    margin: 10px 0;
   }
-  
-  /* Mobile view */
-  @media (max-width: 767px) {
-    .menu-section {
-      width: 100%;
-      margin: 10px 0;
-    }
-  }
+}
